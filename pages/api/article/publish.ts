@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import React from "react";
 import { renderToString } from 'react-dom/server';
-import Publish from '../../publish';
+import Publish from '../../publish/[id]';
 
 export default function publish(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== 'POST') {
