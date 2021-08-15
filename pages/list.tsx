@@ -24,15 +24,18 @@ export default function List() {
                     color: purple;
                 }
             `}</style>
-            {list.map(article => (
-                <li key={article._id}>
-                    <Link href={`/publish/${article._id}`}>
-                        {article.title}
-                    </Link>
-                    - Publish at:&nbsp;
-                    <span>{new Date(article._updateTime).toLocaleDateString()}</span>
-                </li>
-            ))}
+            {list.length
+                ? list.map(article => (
+                    <li key={article._id}>
+                        <Link href={`/publish/${article._id}`}>
+                            {article.title}
+                        </Link>
+                        - Publish at:&nbsp;
+                        <span>{new Date(article._updateTime).toLocaleDateString()}</span>
+                    </li>
+                ))
+                : 'loading...'
+            }
         </ul>
     )
 }
